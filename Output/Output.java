@@ -34,8 +34,8 @@ public class Output {
 			- предназначен для форматированного вывода данных
 		*/
 
-		System.out.println("%d", 10);
-		System.err.println("%f", 10.2569896);
-		System.err.println("%s", "Hello, world!");
+		System.out.printf("%d\n", 10);
+		System.out.printf("%f\n", 10.2569896);
+		System.out.printf("%s", "Hello, world!");
 	}
 }
