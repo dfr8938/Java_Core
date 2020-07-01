@@ -5,6 +5,9 @@ public class MathOperators {
 	static int zeroInt = 0;
 
 	public static void main(String[] args) {
+
+		System.out.println("x = " + x);
+		System.out.println("y = " + y);
 		
 		// +
 
@@ -25,6 +28,35 @@ public class MathOperators {
 		System.out.println("float(double) / 0 = " + 10.0 / zeroInt);
 		System.out.println("-(float(double)) / 0 = " + -10.0 / zeroInt);
 		System.out.println("0.0 / 0 = " + zeroDouble / zeroInt);
-		System.out.println("int / 0" + 10 / zeroInt);
+
+		// %
+
+		System.out.println("x % y = " + (double)(x % y));
+
+		// ++, --
+
+		x++;
+		y++;
+
+		System.out.println("x++ = " + x);
+		System.out.println("y++ = " + y);
+
+		++x;
+		++y;
+
+		System.out.println("++x = " + x);
+		System.out.println("++y = " + y);
+
+		x--;
+		y--;
+
+		System.out.println("x-- = " + x);
+		System.out.println("y-- = " + y);
+
+		--x;
+		--y;
+
+		System.out.println("--x = " + x);
+		System.out.println("--y = " + y);
 	}
 }
