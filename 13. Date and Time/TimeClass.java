@@ -1,4 +1,4 @@
-public class Time {
+public class TimeClass {
 
 	public static void main(String[] args) {
 		
