@@ -22,5 +22,15 @@ public class HelloWorld {
 		System.out.println("i - j = " + answer2);
 		System.out.println("i * j = " + answer3);
 		System.out.println("i / j = " + answer4);
+		
+		String stringAnswer1 = message + " + " + answer1;
+		String stringAnswer2 = message + " + " + answer2;
+		String stringAnswer3 = message + " + " + answer3;
+		String stringAnswer4 = message + " + " + answer4;
+		
+		System.out.println("stringAnswer1 = " + stringAnswer1);
+		System.out.println("stringAnswer2 = " + stringAnswer2);
+		System.out.println("stringAnswer3 = " + stringAnswer3);
+		System.out.println("stringAnswer4 = " + stringAnswer4);
 	}
 }
