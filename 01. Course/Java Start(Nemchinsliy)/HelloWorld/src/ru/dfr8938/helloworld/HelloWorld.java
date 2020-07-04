@@ -44,6 +44,11 @@ public class HelloWorld {
 		System.out.println("i + j = " + answer_1);
 		System.out.println("i - j = " + answer_2);
 		System.out.println("i * j = " + answer_3);
-		System.out.printf("%s / %s = %.2f", "i", "j", answer_4);
+		System.out.printf("%s / %s = %.2f\n\n", "i", "j", answer_4);
+		
+		boolean isMoreThanOne = answer4 > 1 ? true : false;
+		System.out.println(isMoreThanOne);
+		
+		
 	}
 }
