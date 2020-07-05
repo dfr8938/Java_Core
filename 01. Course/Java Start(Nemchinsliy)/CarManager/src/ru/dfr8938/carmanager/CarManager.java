@@ -17,10 +17,11 @@ public class CarManager {
 		Car toyotaPrius2 = new Car(2008, 15000, black.getStrColor(), 1200, "Toyota Prius");
 		Car toyotaPrius3 = new Car(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
 		
-		boolean equals = toyotaPrius.equals(toyotaPrius2) ? true : false;
+		boolean equals;
+		equals = toyotaPrius.equals(toyotaPrius2);
 		System.out.println(equals);
 		
-		equals= toyotaPrius.equals(toyotaPrius3) ? true : false;
+		equals= toyotaPrius.equals(toyotaPrius3);
 		System.out.println(equals);
 		
 	}
