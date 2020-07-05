@@ -40,5 +40,17 @@ public class CarManager {
 		mercedesBenzSprinter.addDistance(2300);
 		System.out.println(mercedesBenzSprinter);
 		
+		System.out.println(mercedesBenzSprinter.isReadyToService());
+		
+		mercedesBenzSprinter.addDistance(100000);
+		System.out.println(mercedesBenzSprinter.isReadyToService());
+		
+		mercedesBenzSprinter.service();
+		System.out.println(mercedesBenzSprinter.isReadyToService());
+		System.out.println(mercedesBenzSprinter);
+		
+		mercedesBenzSprinter.addDistance(40000);
+		System.out.println(mercedesBenzSprinter);
+		System.out.println(mercedesBenzSprinter.isReadyToService());
 	}
 }

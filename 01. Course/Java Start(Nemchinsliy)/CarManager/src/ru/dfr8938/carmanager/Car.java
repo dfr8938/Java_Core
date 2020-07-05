@@ -6,6 +6,7 @@ public class Car {
 	private int price;
 	private int weight;
 	private int distance;
+	protected int distanceOnService;
 	private String color;
 	private String name;
 	
@@ -15,6 +16,7 @@ public class Car {
 		this.color = color;
 		this.weight = weight;
 		this.distance = 0;
+		this.distanceOnService = 0;
 		this.name = name;
 	}
 	
@@ -33,6 +35,10 @@ public class Car {
 	
 	public int getDistance() {
 		return this.distance;
+	}
+	
+	public int getDistanceOnService() {
+		return distanceOnService;
 	}
 	
 	public String getColor() {
@@ -67,7 +73,7 @@ public class Car {
 	@Override
 	public String toString() {
 		return "Car [yearOfProduction=" + yearOfProduction + ", price=" + price + ", weight=" + weight + ", distance="
-				+ distance + ", color=" + color + ", name=" + name + "]";
+				+ distance + ", distanceOnService=" + distanceOnService + ", color=" + color + ", name=" + name + "]";
 	}
 
 	@Override
@@ -76,6 +82,7 @@ public class Car {
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + distance;
+		result = prime * result + distanceOnService;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + price;
 		result = prime * result + weight;
@@ -99,6 +106,8 @@ public class Car {
 			return false;
 		if (distance != other.distance)
 			return false;
+		if (distanceOnService != other.distanceOnService)
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -119,6 +128,7 @@ public class Car {
 		} else {
 			this.distance += additionalDistance;
 		}
+		this.distanceOnService = this.distance;
 	}
 	
 	public void addDistance(double additionalDistance) {
@@ -127,6 +137,18 @@ public class Car {
 		} else {
 			this.distance += additionalDistance;
 		}
+		this.distanceOnService = this.distance;
 	}
 	
+	public boolean isReadyToService() {
+		if(this.distanceOnService > 20000) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public int service() {
+		return this.distanceOnService = 0;
+	}
 }

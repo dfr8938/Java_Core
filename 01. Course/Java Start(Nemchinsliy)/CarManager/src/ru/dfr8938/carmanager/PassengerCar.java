@@ -7,4 +7,15 @@ public class PassengerCar extends Car {
 		
 	}
 
+	@Override
+	public boolean isReadyToService() {
+		if(this.distanceOnService > 50000) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+
 }

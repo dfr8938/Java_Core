@@ -6,5 +6,13 @@ public class Bus extends Car {
 		super(yearOfProduction, price, color, weight, name);
 		
 	}
-	
+
+	public boolean isReadyToService() {
+		if(this.distanceOnService > 10000) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
