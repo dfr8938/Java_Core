@@ -24,5 +24,14 @@ public class CarManager {
 		equals= toyotaPrius.equals(toyotaPrius3);
 		System.out.println(equals);
 		
+		toyotaPrius.addDistance(1205);
+		System.out.println(toyotaPrius);
+		
+		toyotaPrius.addDistance(1205);
+		System.out.println(toyotaPrius);
+		
+		toyotaPrius.addDistance(1200);
+		System.out.println(toyotaPrius);
+		
 	}
 }

@@ -5,6 +5,7 @@ public class Car {
 	private int yearOfProduction;
 	private int price;
 	private int weight;
+	private int distance;
 	private String color;
 	private String name;
 	
@@ -13,6 +14,7 @@ public class Car {
 		this.price = price;
 		this.color = color;
 		this.weight = weight;
+		this.distance = 0;
 		this.name = name;
 	}
 	
@@ -27,6 +29,10 @@ public class Car {
 	
 	public int getWeight() {
 		return this.weight;
+	}
+	
+	public int getDistance() {
+		return this.distance;
 	}
 	
 	public String getColor() {
@@ -60,8 +66,8 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [yearOfProduction=" + yearOfProduction + ", price=" + price + ", weight=" + weight + ", color="
-				+ color + ", name=" + name + "]";
+		return "Car [yearOfProduction=" + yearOfProduction + ", price=" + price + ", weight=" + weight + ", distance="
+				+ distance + ", color=" + color + ", name=" + name + "]";
 	}
 
 	@Override
@@ -69,6 +75,7 @@ public class Car {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		result = prime * result + distance;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + price;
 		result = prime * result + weight;
@@ -90,6 +97,8 @@ public class Car {
 				return false;
 		} else if (!color.equals(other.color))
 			return false;
+		if (distance != other.distance)
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -104,6 +113,8 @@ public class Car {
 		return true;
 	}
 	
-	
+	public void addDistance(int additionalDistance) {
+		this.distance = additionalDistance < 0 ? 0 : additionalDistance + distance;
+	}
 	
 }
