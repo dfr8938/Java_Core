@@ -8,14 +8,14 @@ public class CarManager {
 		Color black = Color.BLACK;
 		Color white = Color.WHITE;
 		
-		PassengerCar toyotaPrius = new PassengerCar(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
-		PassengerCar renaultLaguna = new PassengerCar(2000, 9700, white.getStrColor(), 1600, "Renault Laguna");
+		Car toyotaPrius = new PassengerCar(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
+		Car renaultLaguna = new PassengerCar(2000, 9700, white.getStrColor(), 1600, "Renault Laguna");
 		
 		System.out.println(toyotaPrius.toString());
 		System.out.println(renaultLaguna.toString());
 		
-		PassengerCar toyotaPrius2 = new PassengerCar(2008, 15000, black.getStrColor(), 1200, "Toyota Prius");
-		PassengerCar toyotaPrius3 = new PassengerCar(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
+		Car toyotaPrius2 = new PassengerCar(2008, 15000, black.getStrColor(), 1200, "Toyota Prius");
+		Car toyotaPrius3 = new PassengerCar(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
 		
 		boolean equals;
 		equals = toyotaPrius.equals(toyotaPrius2);
@@ -36,7 +36,7 @@ public class CarManager {
 		toyotaPrius.addDistance(20.45);
 		System.out.println(toyotaPrius);
 		
-		Bus mercedesBenzSprinter = new Bus(2006, 50000, black.getStrColor(), 5000, "Mercedes Benz-Sprinter");
+		Car mercedesBenzSprinter = new Bus(2006, 50000, black.getStrColor(), 5000, "Mercedes Benz-Sprinter");
 		mercedesBenzSprinter.addDistance(2300);
 		System.out.println(mercedesBenzSprinter);
 		

@@ -1,6 +1,6 @@
 package ru.dfr8938.carmanager;
 
-public class Car {
+public abstract class Car {
 	
 	private int yearOfProduction;
 	private int price;
@@ -140,13 +140,7 @@ public class Car {
 		this.distanceOnService = this.distance;
 	}
 	
-	public boolean isReadyToService() {
-		if(this.distanceOnService > 20000) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	public abstract boolean isReadyToService();
 	
 	public int service() {
 		return this.distanceOnService = 0;
