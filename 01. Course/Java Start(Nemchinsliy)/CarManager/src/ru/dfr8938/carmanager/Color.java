@@ -18,4 +18,7 @@ public enum Color {
 		return strColor;
 	}
 	
+	public String toString() {
+		return strColor;
+	}
 }

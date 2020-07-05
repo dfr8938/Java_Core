@@ -5,6 +5,7 @@ public class CarManager {
 	public static void main(String[] args) {
 		
 		Color green = Color.GREEN;
+		Color black = Color.BLACK;
 		Color white = Color.WHITE;
 		
 		Car toyotaPrius = new Car(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
@@ -12,6 +13,15 @@ public class CarManager {
 		
 		System.out.println(toyotaPrius.toString());
 		System.out.println(renaultLaguna.toString());
+		
+		Car toyotaPrius2 = new Car(2008, 15000, black.getStrColor(), 1200, "Toyota Prius");
+		Car toyotaPrius3 = new Car(2008, 15000, green.getStrColor(), 1200, "Toyota Prius");
+		
+		boolean equals = toyotaPrius.equals(toyotaPrius2) ? true : false;
+		System.out.println(equals);
+		
+		equals= toyotaPrius.equals(toyotaPrius3) ? true : false;
+		System.out.println(equals);
 		
 	}
 }
