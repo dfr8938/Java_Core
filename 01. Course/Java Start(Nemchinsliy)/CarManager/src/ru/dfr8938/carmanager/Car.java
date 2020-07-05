@@ -114,7 +114,19 @@ public class Car {
 	}
 	
 	public void addDistance(int additionalDistance) {
-		this.distance = additionalDistance < 0 ? 0 : additionalDistance + distance;
+		if(additionalDistance < 0) {
+			this.distance = 0;
+		} else {
+			this.distance += additionalDistance;
+		}
+	}
+	
+	public void addDistance(double additionalDistance) {
+		if(additionalDistance < 0) {
+			this.distance = 0;
+		} else {
+			this.distance += additionalDistance;
+		}
 	}
 	
 }

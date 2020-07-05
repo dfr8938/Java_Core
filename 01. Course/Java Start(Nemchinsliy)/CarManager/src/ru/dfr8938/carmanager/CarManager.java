@@ -33,5 +33,8 @@ public class CarManager {
 		toyotaPrius.addDistance(1200);
 		System.out.println(toyotaPrius);
 		
+		toyotaPrius.addDistance(20.45);
+		System.out.println(toyotaPrius);
+		
 	}
 }
