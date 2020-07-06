@@ -8,6 +8,7 @@ public class StringUtil {
 		System.out.println("source = " + source);
 		
 		String[] arr = source.split(" ");
+		System.out.println("length array: " + arr.length);
 		int len = arr.length;
 		for(int i = 0; i < len; i++) {
 			/*
@@ -18,6 +19,17 @@ public class StringUtil {
 				System.out.println("arr[" + i + "]" + "\"" + arr[i] + "\"" + ".");
 			} else {
 				System.out.println("arr[" + i + "]" + "\"" + arr[i] + "\"" + ";");
+			}
+		}
+		
+		char[] arrChar = arr[0].toCharArray();
+		System.out.println("length array: " + arrChar.length);
+		len = arrChar.length;
+		for(int i = 0; i < len; i++) {
+			if(i == arrChar.length -1) {
+				System.out.println(arrChar[i] + ".");
+			} else {
+				System.out.print(arrChar[i] + "-");
 			}
 		}
 	}
