@@ -32,6 +32,7 @@ public class StringUtil {
 				System.out.print(arrChar[i] + "-");
 			}
 		}
+		
 	}
 
 }

@@ -1,5 +1,8 @@
 package ru.dfr8938.carmanager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarManager {
 	
 	public static void main(String[] args) {
@@ -61,5 +64,21 @@ public class CarManager {
 		combine.addDistance(179000);
 		System.out.println(combine);
 		System.out.println(combine.isReadyToService());
+		
+		List<Car> cars = new ArrayList<>();
+		
+		cars.add(toyotaPrius);
+		cars.add(toyotaPrius2);
+		cars.add(toyotaPrius3);
+		cars.add(renaultLaguna);
+		cars.add(mercedesBenzSprinter);
+		
+		System.out.println(cars);
+		
+		System.out.println("length: " + cars.size());
+		for(Car i : cars) {
+			System.out.println(i.toString());
+		}
+		
 	}
 }
