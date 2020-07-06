@@ -52,5 +52,14 @@ public class CarManager {
 		mercedesBenzSprinter.addDistance(40000);
 		System.out.println(mercedesBenzSprinter);
 		System.out.println(mercedesBenzSprinter.isReadyToService());
+		
+		AgriculturalCar combine = new Combine(1999, 200000, 10000, green.getStrColor(), "Combine-1");
+		System.out.println(combine);
+		combine.addDistance(23000);
+		System.out.println(combine);
+		System.out.println(combine.isReadyToService());
+		combine.addDistance(179000);
+		System.out.println(combine);
+		System.out.println(combine.isReadyToService());
 	}
 }

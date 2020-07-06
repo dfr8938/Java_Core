@@ -1,6 +1,6 @@
 package ru.dfr8938.carmanager;
 
-public abstract class Car implements Serviceable {
+public abstract class AgriculturalCar implements Serviceable {
 	
 	private int yearOfProduction;
 	private int price;
@@ -10,70 +10,15 @@ public abstract class Car implements Serviceable {
 	private String color;
 	private String name;
 	
-	public Car(int yearOfProduction, int price, String color, int weight, String name) {
+	public AgriculturalCar(int yearOfProduction, int price, int weight, String color, String name) {
+	
 		this.yearOfProduction = yearOfProduction;
 		this.price = price;
-		this.color = color;
 		this.weight = weight;
 		this.distance = 0;
 		this.distanceOnService = 0;
-		this.name = name;
-	}
-	
-	// getters
-	public int getYearOfProduction() {
-		return this.yearOfProduction;
-	}
-	
-	public int getPrice() {
-		return this.price;
-	}
-	
-	public int getWeight() {
-		return this.weight;
-	}
-	
-	public int getDistance() {
-		return this.distance;
-	}
-	
-	public int getDistanceOnService() {
-		return distanceOnService;
-	}
-	
-	public String getColor() {
-		return this.color;
-	}
-	
-	public String getName() {
-		return this.name;
-	}
-	
-	//setters
-	public void setYearOfProduction(int yearOfProduction) {
-		this.yearOfProduction = yearOfProduction;
-	}
-	
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-	
-	public void setColor(String color) {
 		this.color = color;
-	}
-	
-	public void setName(String name) {
 		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Car [yearOfProduction=" + yearOfProduction + ", price=" + price + ", weight=" + weight + ", distance="
-				+ distance + ", distanceOnService=" + distanceOnService + ", color=" + color + ", name=" + name + "]";
 	}
 
 	@Override
@@ -98,7 +43,7 @@ public abstract class Car implements Serviceable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Car other = (Car) obj;
+		AgriculturalCar other = (AgriculturalCar) obj;
 		if (color == null) {
 			if (other.color != null)
 				return false;
@@ -121,6 +66,59 @@ public abstract class Car implements Serviceable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "AgriculturalCar [yearOfProduction=" + yearOfProduction + ", price=" + price + ", weight=" + weight
+				+ ", distance=" + distance + ", distanceOnService=" + distanceOnService + ", color=" + color + ", name="
+				+ name + "]";
+	}
+	
+	public abstract boolean isReadyToService();
+
+	public int getYearOfProduction() {
+		return yearOfProduction;
+	}
+
+	public void setYearOfProduction(int yearOfProduction) {
+		this.yearOfProduction = yearOfProduction;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getDistanceOnService() {
+		return distanceOnService;
+	};
 	
 	public void addDistance(int additionalDistance) {
 		if(additionalDistance < 0) {
@@ -128,8 +126,8 @@ public abstract class Car implements Serviceable {
 		} else {
 			this.distance += additionalDistance;
 		}
-		this.distanceOnService = this.distance;
-	}
+		this.distanceOnService += additionalDistance;
+	};
 	
 	public void addDistance(double additionalDistance) {
 		if(additionalDistance < 0) {
@@ -137,12 +135,7 @@ public abstract class Car implements Serviceable {
 		} else {
 			this.distance += additionalDistance;
 		}
-		this.distanceOnService = this.distance;
-	}
-	
-	
-	
-	public int service() {
-		return this.distanceOnService = 0;
-	}
+		this.distanceOnService += additionalDistance;
+	};
+
 }
