@@ -43,6 +43,7 @@ public class ActionBtnMain implements ActionListener {
                 GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
                 new Insets(2, 2, 2, 2), 0, 0
         ));
+        buttonClose.addActionListener(this::actionPerformed);
         panelBottom.add(buttonClose, new GridBagConstraints(
                 1, 0, 1, 1, 1, 1,
                 GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
@@ -67,6 +68,12 @@ public class ActionBtnMain implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        System.out.println(textField.getText());
+        if(event.getSource() instanceof JButton) {
+            if(((JButton) event.getSource()).getText().equals("Enter")) {
+                System.out.println("Hello!");
+            } else {
+                textField.setText("");
+            }
+        }
     }
 }
