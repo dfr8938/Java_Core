@@ -3,6 +3,7 @@ package ru.dfr8938.instamavsw;
 import org.brunocvcunha.instagram4j.Instagram4j;
 import org.brunocvcunha.instagram4j.requests.InstagramSearchUsernameRequest;
 import org.brunocvcunha.instagram4j.requests.InstagramUploadAlbumRequest;
+import org.brunocvcunha.instagram4j.requests.InstagramUploadPhotoRequest;
 import org.brunocvcunha.instagram4j.requests.payload.InstagramSearchUsernameResult;
 
 import javax.swing.*;
@@ -12,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class SetVisible implements ActionListener {
@@ -47,9 +47,15 @@ public class SetVisible implements ActionListener {
     private JTextField passTextField;
     private JTextArea descriptionTextField;
     private JScrollPane scrollPane;
+    private JTabbedPane panePhoto;
+    private JTabbedPane paneAlbum;
     private final JButton buttonEnter;
     private final JButton buttonClear;
     private final JButton buttonAlbum;
+
+    private JTextField textFieldPhoto;
+    private JButton buttonPush;
+    private JTextArea textAreaPhoto;
 
     public SetVisible(String title) {
         this.title = title;
@@ -82,9 +88,15 @@ public class SetVisible implements ActionListener {
         this.passTextField = new JTextField(25);
         this.descriptionTextField = new JTextArea(10, 2);
         this.scrollPane = new JScrollPane(descriptionTextField);
+        this.panePhoto = new JTabbedPane();
+        this.paneAlbum = new JTabbedPane();
         this.buttonEnter = new JButton("Connect");
         this.buttonClear = new JButton("Clear");
         this.buttonAlbum = new JButton("Album");
+
+        this.textFieldPhoto = new JTextField(10);
+        this.buttonPush = new JButton("Push");
+        this.textAreaPhoto = new JTextArea(12, 2);
     }
 
     public void init() {
@@ -214,6 +226,97 @@ public class SetVisible implements ActionListener {
         ));
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
+        JPanel panel = new JPanel(new GridBagLayout());
+        JPanel lPanel = new JPanel(new GridBagLayout());
+        JPanel tlPanel = new JPanel(new GridBagLayout());
+        JPanel bePanel = new JPanel(new GridBagLayout());
+        JPanel bpPanel = new JPanel(new GridBagLayout());
+
+        JFileChooser fileChooser = new JFileChooser();
+        panePhoto.addTab("Photo", panel);
+        panePhoto.addTab("Album", panelAlbum);
+        JLabel label = new JLabel("File", SwingConstants.CENTER);
+        JButton button = new JButton("Enter");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fileChooser.showDialog(button, "Enter");
+                textFieldPhoto.setText(String.valueOf(fileChooser.getSelectedFile()));
+            }
+        });
+
+
+        JScrollPane scrollPane1 = new JScrollPane(textAreaPhoto);
+
+        textAreaPhoto.setLineWrap(true);
+        textAreaPhoto.setWrapStyleWord(true);
+
+        JPanel taPanel = new JPanel(new GridBagLayout());
+
+        buttonPush.addActionListener(this);
+        panel.setBackground(Color.LIGHT_GRAY);
+        panel.add(lPanel, new GridBagConstraints(
+                0, 0, 1, 1, 1, 1,
+                GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        panel.add(tlPanel, new GridBagConstraints(
+                1, 0, 1, 1, 1, 1,
+                GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        panel.add(bePanel, new GridBagConstraints(
+                2, 0, 1, 1, 1, 1,
+                GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        panel.add(bpPanel, new GridBagConstraints(
+                3, 0, 1, 1, 1, 1,
+                GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        panel.add(taPanel, new GridBagConstraints(
+                0, 1, 4, 1, 1, 1,
+                GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+
+        lPanel.setPreferredSize(new Dimension(20, 30));
+        tlPanel.setPreferredSize(new Dimension(110, 30));
+        lPanel.setBackground(Color.LIGHT_GRAY);
+        tlPanel.setBackground(Color.LIGHT_GRAY);
+        bePanel.setBackground(Color.LIGHT_GRAY);
+        bpPanel.setBackground(Color.LIGHT_GRAY);
+        taPanel.setPreferredSize(new Dimension(300, 200));
+        taPanel.setBackground(Color.LIGHT_GRAY);
+
+        lPanel.add(label, new GridBagConstraints(
+                0, 0, 1, 1, 1, 1,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        tlPanel.add(textFieldPhoto, new GridBagConstraints(
+                0, 0, 1, 1, 1, 1,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        bePanel.add(button, new GridBagConstraints(
+                0, 0, 1, 1, 1, 1,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        bpPanel.add(buttonPush, new GridBagConstraints(
+                0, 0, 1, 1, 1, 1,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+        taPanel.add(scrollPane1, new GridBagConstraints(
+                0, 0, 1, 1, 1, 1,
+                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+                new Insets(2, 2, 2, 2), 0, 0
+        ));
+
+
         panelAlbum.add(descriptionLabel, new GridBagConstraints(
                 0, 0, 1, 1, 1, 1,
                 GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
@@ -285,13 +388,20 @@ public class SetVisible implements ActionListener {
                 GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
                 new Insets(2, 2, 2, 2), 0, 0
         ));
-        frame.add(panelAlbum, new GridBagConstraints(
+
+        frame.add(panePhoto, new GridBagConstraints(
                 0, 3, 1, 1, 1, 1,
                 GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
                 new Insets(2, 2, 2, 2), 0, 0
         ));
+
+//        frame.add(panelAlbum, new GridBagConstraints(
+//                0, 4, 1, 1, 1, 1,
+//                GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+//                new Insets(2, 2, 2, 2), 0, 0
+//        ));
         frame.add(panelBottom, new GridBagConstraints(
-                0, 4, 1, 1, 1, 1,
+                0, 5, 1, 1, 1, 1,
                 GridBagConstraints.SOUTH, GridBagConstraints.HORIZONTAL,
                 new Insets(2, 2, 2, 2), 0, 0
         ));
@@ -372,6 +482,29 @@ public class SetVisible implements ActionListener {
                 ioException.printStackTrace();
             }
 
+        } else if(((JButton) e.getSource()).getText().equals("Push")) {
+            Instagram4j instagram = Instagram4j.builder().username(loginTextField.getText()).password(passTextField.getText()).build();
+            instagram.setup();
+            try {
+                instagram.login();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
+            InstagramSearchUsernameResult usernameResult = null;
+            try {
+                assert false;
+                usernameResult = instagram.sendRequest(new InstagramSearchUsernameRequest(usernameTextField.getText()));
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
+            try {
+                instagram.sendRequest(new InstagramUploadPhotoRequest(new File(textFieldPhoto.getText()), textAreaPhoto.getText()));
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
         } else {
             usernameTextField.setText("");
             loginTextField.setText("");
@@ -379,6 +512,9 @@ public class SetVisible implements ActionListener {
 
             infoConnectLabel.setText("Not connected");
             infoConnectLabel.setForeground(Color.RED);
+
+            textFieldPhoto.setText("");
+            textAreaPhoto.setText("");
 
             userOutputLabel.setText("-");
             fullnameOutputLabel.setText("-");
