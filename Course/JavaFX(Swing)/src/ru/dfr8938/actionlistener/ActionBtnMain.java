@@ -70,7 +70,7 @@ public class ActionBtnMain implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() instanceof JButton) {
             if(((JButton) event.getSource()).getText().equals("Enter")) {
-                System.out.println("Hello!");
+                System.out.println(textField.getText());
             } else {
                 textField.setText("");
             }
