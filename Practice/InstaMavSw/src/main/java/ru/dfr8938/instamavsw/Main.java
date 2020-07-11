@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SetVisible setVisible = new SetVisible("InstaMavSw");
+        SetVisible setVisible = new SetVisible("InstaLoaderPhoto");
 
         setVisible.init();
     }
