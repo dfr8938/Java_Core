@@ -8,22 +8,39 @@ public class ModelTable extends AbstractTableModel {
 
     private int columnCount;
     private int rowCount;
-    private int[][] arr;
+    private List<String[]> list;
 
     public ModelTable(int columnCount, int rowCount) {
         this.columnCount = columnCount;
         this.rowCount = rowCount;
-        this.arr = new int[rowCount][columnCount];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = i + 1;
-            }
+        this.list = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            list.add(new String[getColumnCount()]);
+        }
+    }
+
+    public void addListValue(String[] row) {
+        String[] rowTable = new String[getColumnCount()];
+        rowTable = row;
+        list.add(rowTable);
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {
+        if (columnIndex == 0) {
+            return "id";
+        } else if (columnIndex == 1) {
+            return "title";
+        } else if (columnIndex == 2) {
+            return "isbn";
+        } else {
+            return "description";
         }
     }
 
     @Override
     public int getRowCount() {
-        return this.rowCount;
+        return list.size();
     }
 
     @Override
@@ -33,6 +50,7 @@ public class ModelTable extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return arr[rowIndex][columnIndex];
+        String[] rows = list.get(rowIndex);
+        return rows[columnIndex];
     }
 }
